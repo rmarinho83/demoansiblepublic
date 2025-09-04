@@ -4,11 +4,8 @@
   become: yes
   vars:
     ntp_servers:
-      - 0.pool.ntp.org
-      - 1.pool.ntp.org
-      - 2.pool.ntp.org
-      - 3.pool.ntp.org
-
+      - ntp02.oal.ul.pt
+      - ntp04.oal.ul.pt
   tasks:
     - name: Install chrony (NTP client)
       ansible.builtin.package:
@@ -21,8 +18,6 @@
         content: |
           pool {{ ntp_servers[0] }} iburst
           pool {{ ntp_servers[1] }} iburst
-          pool {{ ntp_servers[2] }} iburst
-          pool {{ ntp_servers[3] }} iburst
           driftfile /var/lib/chrony/drift
           makestep 1.0 3
           rtcsync
