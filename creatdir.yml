@@ -4,4 +4,4 @@
   tasks:
     - name: Create directory for daily logs with command module
       ansible.builtin.command:
-        cmd: "mkdir -p /var/logs/app/daily_logs"
+        cmd: "mkdir -p /home/itadmin/aaaa"
